@@ -52,7 +52,7 @@ The installer:
 
 - creates any missing parent folders
 - backs up conflicting files into `~/repos/agent-profile/.local/backups/<timestamp>/`
-- links each managed file from this repo into your home directory
+- syncs each managed file from this repo into your home directory as a normal file
 - supports `--dry-run` so you can inspect changes first
 
 ## Check
@@ -62,7 +62,12 @@ cd ~/repos/agent-profile
 bash ./scripts/doctor.sh
 ```
 
-This checks whether the managed files in `~` point to this repo.
+This checks whether the managed files in `~` match this repo.
+
+It accepts either:
+
+- normal files with the same content
+- existing symlinks with the same content
 
 ## Update Flow
 

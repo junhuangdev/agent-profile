@@ -17,20 +17,17 @@ while IFS= read -r src; do
     continue
   fi
 
-  if [[ ! -L "$dest" ]]; then
-    printf 'file  %s\n' "$dest"
+  if ! cmp -s "$src" "$dest"; then
+    printf 'diff  %s\n' "$dest"
     bad_count=$((bad_count + 1))
     continue
   fi
 
-  current="$(readlink "$dest")"
-  if [[ "$current" != "$src" ]]; then
-    printf 'diff  %s -> %s\n' "$dest" "$current"
-    bad_count=$((bad_count + 1))
-    continue
+  if [[ -L "$dest" ]]; then
+    printf 'ok    %s (symlink)\n' "$dest"
+  else
+    printf 'ok    %s\n' "$dest"
   fi
-
-  printf 'ok    %s\n' "$dest"
   ok_count=$((ok_count + 1))
 done < <(find "$source_root" -type f | sort)
 

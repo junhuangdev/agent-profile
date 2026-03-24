@@ -7,7 +7,8 @@ source_root="$repo_root/home"
 state_root="$repo_root/.local"
 backup_root="$state_root/backups/$(date +%Y%m%d-%H%M%S)"
 backups_created=0
-linked_count=0
+synced_count=0
+unchanged_count=0
 dry_run=0
 
 usage() {
@@ -77,10 +78,22 @@ os.remove(path)
 PY
 }
 
-link_file() {
+copy_file() {
   local src="$1"
   local dest="$2"
-  local current=""
+
+  if (( dry_run )); then
+    printf 'plan  sync %s <- %s\n' "$dest" "$src"
+    return
+  fi
+
+  cp -p "$src" "$dest"
+  printf 'sync  %s\n' "$dest"
+}
+
+sync_file() {
+  local src="$1"
+  local dest="$2"
 
   if (( dry_run )); then
     printf 'plan  ensure-dir %s\n' "$(dirname "$dest")"
@@ -89,31 +102,31 @@ link_file() {
   fi
 
   if [[ -L "$dest" ]]; then
-    current="$(readlink "$dest")"
-    if [[ "$current" == "$src" ]]; then
+    backup_path "$dest"
+    remove_path "$dest"
+    copy_file "$src" "$dest"
+    synced_count=$((synced_count + 1))
+    return
+  elif [[ -e "$dest" ]]; then
+    if cmp -s "$src" "$dest"; then
       printf 'ok    %s\n' "$dest"
+      unchanged_count=$((unchanged_count + 1))
       return
     fi
     backup_path "$dest"
-    remove_path "$dest"
-  elif [[ -e "$dest" ]]; then
-    backup_path "$dest"
-    remove_path "$dest"
+    copy_file "$src" "$dest"
+    synced_count=$((synced_count + 1))
+    return
   fi
 
-  if (( dry_run )); then
-    printf 'plan  link %s -> %s\n' "$dest" "$src"
-  else
-    ln -s "$src" "$dest"
-    printf 'link  %s -> %s\n' "$dest" "$src"
-  fi
-  linked_count=$((linked_count + 1))
+  copy_file "$src" "$dest"
+  synced_count=$((synced_count + 1))
 }
 
 while IFS= read -r src; do
   rel="${src#$source_root/}"
   dest="$HOME/$rel"
-  link_file "$src" "$dest"
+  sync_file "$src" "$dest"
 done < <(find "$source_root" -type f | sort)
 
 if (( dry_run )); then
@@ -125,4 +138,4 @@ else
   rmdir "$backup_root" 2>/dev/null || true
 fi
 
-printf 'done  linked %d file(s)\n' "$linked_count"
+printf 'done  synced %d file(s), unchanged %d file(s)\n' "$synced_count" "$unchanged_count"
