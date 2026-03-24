@@ -1,0 +1,5 @@
+interface:
+  display_name: "Executive Summary Style"
+  short_description: "Decision-first stakeholder answers"
+  default_prompt: "Use $executive-summary-style to answer with a decision-first stakeholder summary."
+

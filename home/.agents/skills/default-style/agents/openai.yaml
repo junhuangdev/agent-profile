@@ -1,0 +1,5 @@
+interface:
+  display_name: "Default Style"
+  short_description: "Jun's default response profile"
+  default_prompt: "Use $default-style to answer in Jun's default summary-first, dashboard-first communication style."
+

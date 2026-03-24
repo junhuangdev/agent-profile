@@ -1,0 +1,5 @@
+interface:
+  display_name: "Critical Peer Style"
+  short_description: "Direct skeptical review mode"
+  default_prompt: "Use $critical-peer-style to review this with direct, skeptical, findings-first feedback."
+

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Teaching Style"
+  short_description: "Step-by-step explanatory answers"
+  default_prompt: "Use $teaching-style to explain this step by step and build intuition."
+
