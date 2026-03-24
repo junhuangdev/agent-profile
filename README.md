@@ -44,20 +44,22 @@ scripts/
 
 ```bash
 cd ~/repos/agent-profile
-./scripts/install.sh
+bash ./scripts/install.sh --dry-run
+bash ./scripts/install.sh
 ```
 
 The installer:
 
 - creates any missing parent folders
-- backs up conflicting files into `~/.agent-profile-backups/<timestamp>/`
+- backs up conflicting files into `~/repos/agent-profile/.local/backups/<timestamp>/`
 - links each managed file from this repo into your home directory
+- supports `--dry-run` so you can inspect changes first
 
 ## Check
 
 ```bash
 cd ~/repos/agent-profile
-./scripts/doctor.sh
+bash ./scripts/doctor.sh
 ```
 
 This checks whether the managed files in `~` point to this repo.
@@ -65,9 +67,10 @@ This checks whether the managed files in `~` point to this repo.
 ## Update Flow
 
 1. Edit files in this repo.
-2. Run `./scripts/install.sh`.
-3. Run `./scripts/doctor.sh`.
-4. Commit and push.
+2. Run `bash ./scripts/install.sh --dry-run`.
+3. Run `bash ./scripts/install.sh`.
+4. Run `bash ./scripts/doctor.sh`.
+5. Commit and push.
 
 ## Scope
 
