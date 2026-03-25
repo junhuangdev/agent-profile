@@ -1,17 +1,17 @@
 # Global AGENTS.md
 
-This file applies to `/Users/jun` and all descendant directories as the globally mandatory ruleset.
+This file applies to the user's home directory and descendant directories when installed as `~/AGENTS.md`.
 
 ## Global Governance Model
 
-- `/Users/jun/AGENTS.md` provides globally mandatory rules.
+- The global `AGENTS.md` file provides globally mandatory rules.
 - Project-local `AGENTS.md` files are additive only: they may supply project facts, commands, architecture, boundaries, and repository-specific constraints.
 - Project-local `AGENTS.md` files must not weaken, bypass, or override the global rules for:
   - output quality
   - readability of plans and proposals
   - workflow baselines
 - When local and global guidance both apply:
-  - follow `/Users/jun/AGENTS.md` for process and response quality
+  - follow the global `AGENTS.md` for process and response quality
   - follow the nearest project `AGENTS.md` for project-specific implementation context
 
 ## Canonical Workflow
@@ -20,11 +20,11 @@ When a `superpowers` skill applies, treat `superpowers` as the canonical workflo
 
 - Do not modify, weaken, skip, reorder, or replace `superpowers` workflow steps.
 - Do not replace `superpowers` document structures with a new local workflow.
-- Local rules in this file are **additive presentation overlay only**.
+- Overlay rules in this file are additive presentation guidance only.
 - The overlay may add summary, visuals, readability, and recommendation sections.
 - The overlay must preserve the original `superpowers` engineering content, required gates, and task structure.
 
-`/Users/jun/.codex/AGENTS.md` may add Codex-specific runtime notes, but it must stay within this global mandatory and additive-overlay model.
+`$CODEX_HOME/AGENTS.md` may add Codex-specific runtime notes, but it must stay within this global mandatory and additive-overlay model.
 
 ## Complexity Gate
 
@@ -40,7 +40,7 @@ Simple requests should stay concise and may omit visuals if a diagram would not 
 
 ## Response Style Governance
 
-Response-style profiles live in personal skills under `~/.agents/skills/`.
+Response-style profiles live in the active agent skills directory.
 
 - Use `default-style` when the user does not explicitly request another response style.
 - Explicit style requests override `default-style` for the current turn unless the user says the change should persist.
@@ -114,7 +114,7 @@ When `superpowers` creates persistent documents, keep the original body and add 
 
 ## Template Library
 
-When useful, reuse the template library under `/Users/jun/.codex/rules/`:
+When useful, reuse the template library under `$CODEX_HOME/rules/`:
 
 - `superpowers-overlay-contract.md`
 - `chat-reader-summary-template.md`

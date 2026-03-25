@@ -1,13 +1,13 @@
 ---
 name: default-style
-description: Use when no explicit response style is requested and the assistant should follow Jun's default communication and presentation profile.
+description: Use when no explicit response style is requested and the assistant should follow the shared default communication and presentation profile.
 ---
 
 # Default Style
 
 ## Overview
 
-This is Jun's default reply profile. Optimize for scanability: conclusion before support, summary before detail, and visuals only when they materially improve comprehension.
+This is the shared default reply profile. Optimize for scanability: conclusion before support, summary before detail, and visuals only when they materially improve comprehension.
 
 ## When to Use
 

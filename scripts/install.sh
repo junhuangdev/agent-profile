@@ -5,6 +5,7 @@ set -euo pipefail
 repo_root="$(cd -- "$(dirname -- "$0")/.." && pwd)"
 source_root="$repo_root/home"
 state_root="$repo_root/.local"
+override_root="$state_root/overrides/home"
 backup_root="$state_root/backups/$(date +%Y%m%d-%H%M%S)"
 backups_created=0
 synced_count=0
@@ -18,6 +19,28 @@ Usage: install.sh [--dry-run]
 Options:
   --dry-run   Show planned changes without writing anything
 EOF
+}
+
+list_effective_files() {
+  python3 - "$source_root" "$override_root" <<'PY'
+from pathlib import Path
+import sys
+
+base = Path(sys.argv[1])
+override = Path(sys.argv[2])
+files = {}
+
+for root in (base, override):
+    if not root.exists():
+        continue
+    for path in sorted(root.rglob('*')):
+        if path.is_file():
+            rel = str(path.relative_to(root))
+            files[rel] = str(path)
+
+for rel in sorted(files):
+    print(f"{files[rel]}\t{rel}")
+PY
 }
 
 while (($#)); do
@@ -123,11 +146,11 @@ sync_file() {
   synced_count=$((synced_count + 1))
 }
 
-while IFS= read -r src; do
-  rel="${src#$source_root/}"
+while IFS=$'\t' read -r src rel; do
+  [[ -n "${src:-}" ]] || continue
   dest="$HOME/$rel"
   sync_file "$src" "$dest"
-done < <(find "$source_root" -type f | sort)
+done < <(list_effective_files)
 
 if (( dry_run )); then
   printf 'mode  dry-run\n'

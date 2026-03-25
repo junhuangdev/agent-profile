@@ -1,19 +1,16 @@
 # agent-profile
 
-Public home for Jun's agent rules, style profiles, and shared templates.
+Public base profile for agent rules, style profiles, and shared templates.
 
-This repo is the source of truth.
-
-Do not edit the live files in `~` by hand.
-Edit this repo.
-Then run the install script.
+Edit the repo.
+Then sync it into the target environment.
 
 ## What This Repo Manages
 
 - `~/AGENTS.md`
-- `~/.codex/AGENTS.md`
-- files under `~/.codex/rules/`
-- selected public-safe skills under `~/.agents/skills/`
+- `$CODEX_HOME/AGENTS.md`
+- files under `$CODEX_HOME/rules/`
+- selected public-safe skills in the active agent skills directory
 
 ## Managed Skills
 
@@ -33,17 +30,19 @@ home/
     rules/
   .agents/
     skills/
+templates/
+  default.rules.example
 scripts/
   install.sh
   doctor.sh
 ```
 
-`home/` mirrors the target paths under `~`.
+`home/` mirrors the target paths under `$HOME`.
 
 ## Install
 
 ```bash
-cd ~/repos/agent-profile
+cd <repo-root>
 bash ./scripts/install.sh --dry-run
 bash ./scripts/install.sh
 ```
@@ -51,39 +50,57 @@ bash ./scripts/install.sh
 The installer:
 
 - creates any missing parent folders
-- backs up conflicting files into `~/repos/agent-profile/.local/backups/<timestamp>/`
-- syncs each managed file from this repo into your home directory as a normal file
+- backs up conflicting files into `<repo-root>/.local/backups/<timestamp>/`
+- syncs the public base profile from `home/`
+- then applies any private overrides from `.local/overrides/home/`
+- writes normal files, not symlinks
 - supports `--dry-run` so you can inspect changes first
+
+## Private Overrides
+
+Keep machine-specific permissions, paths, and secrets out of the tracked repo.
+
+- Put private overrides under `.local/overrides/home/`
+- `.local/` is git-ignored
+- Override files win over the public base profile when both define the same target path
+
+Example:
+
+```bash
+cd <repo-root>
+mkdir -p .local/overrides/home/.codex/rules
+cp templates/default.rules.example .local/overrides/home/.codex/rules/default.rules
+```
 
 ## Check
 
 ```bash
-cd ~/repos/agent-profile
+cd <repo-root>
 bash ./scripts/doctor.sh
 ```
 
-This checks whether the managed files in `~` match this repo.
+This checks whether the effective managed files in the target environment match the merged result of:
 
-It accepts either:
-
-- normal files with the same content
-- existing symlinks with the same content
+- the public base profile in `home/`
+- the optional private overlay in `.local/overrides/home/`
 
 ## Update Flow
 
-1. Edit files in this repo.
-2. Run `bash ./scripts/install.sh --dry-run`.
-3. Run `bash ./scripts/install.sh`.
-4. Run `bash ./scripts/doctor.sh`.
-5. Commit and push.
+1. Edit tracked files in this repo for shareable behavior.
+2. Edit `.local/overrides/home/...` for machine-specific behavior.
+3. Run `bash ./scripts/install.sh --dry-run`.
+4. Run `bash ./scripts/install.sh`.
+5. Run `bash ./scripts/doctor.sh`.
+6. Commit and push tracked files.
 
 ## Scope
 
 This repo does not track runtime state.
+It also does not track private overrides under `.local/`.
 
 It does not include:
 
-- `~/.codex/memories/`
-- `~/.codex/automations/`
-- `~/.codex/skills/.system/`
+- `$CODEX_HOME/memories/`
+- `$CODEX_HOME/automations/`
+- `$CODEX_HOME/skills/.system/`
 - private or machine-specific state

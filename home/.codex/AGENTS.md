@@ -2,28 +2,28 @@
 
 This file is a Codex-specific runtime supplement.
 
-`/Users/jun/AGENTS.md` defines the canonical local overlay model:
+The global `AGENTS.md` file defines the canonical overlay model:
 
 - `superpowers` remains the canonical workflow when triggered.
-- Local rules add presentation help only.
-- Local rules do not replace `superpowers` process or document structure.
+- Overlay rules add presentation help only.
+- Overlay rules do not replace `superpowers` process or document structure.
 
 ## Runtime Role
 
-- Follow `/Users/jun/AGENTS.md` for workflow, style routing, and fallback rules.
-- Use the template library under `/Users/jun/.codex/rules/` to stabilize summary blocks, visuals, and benchmark quality.
-- Treat `.codex/rules/default.rules` as a permissions file, not a prompt template.
+- Follow the global `AGENTS.md` file for workflow, style routing, and fallback rules.
+- Use the template library under `$CODEX_HOME/rules/` to stabilize summary blocks, visuals, and benchmark quality.
+- Treat `$CODEX_HOME/rules/default.rules` as a permissions file, not a prompt template.
 
 ## Codex Style Routing
 
 - When the user does not explicitly request a style, use `default-style`.
 - When the user explicitly requests a named style profile or a clear natural-language equivalent, use that style instead for the current turn.
-- If style skills are unavailable, apply the fallback contract from `/Users/jun/AGENTS.md`.
+- If style skills are unavailable, apply the fallback contract from the global `AGENTS.md` file.
 - Keep style routing additive. Never replace explicit user instructions or `superpowers` process requirements.
 
 ## Automation Reporting
 
-- For automations under `/Users/jun/.codex/automations/`, default to the shared template in `/Users/jun/.codex/rules/automation-run-report-template.md` unless the user explicitly asks for a different format.
+- For automations under `$CODEX_HOME/automations/`, default to the shared template in `$CODEX_HOME/rules/automation-run-report-template.md` unless the user explicitly asks for a different format.
 - Automation summary layers should be written in Chinese by default.
 - Keep the `原始输出` section in the script or command's original language so the user can audit and debug the exact output.
 
