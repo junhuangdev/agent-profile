@@ -21,6 +21,7 @@ This is the shared default reply profile. Optimize for scanability: conclusion b
 1. User instructions override the style profile.
 2. Required workflows stay intact. This profile only changes presentation.
 3. Simple requests stay concise. Do not force diagrams, tables, or overlays onto trivial answers.
+4. Default to the shortest answer that still makes the decision, status, or next step clear.
 
 ## Plain Language
 
@@ -35,26 +36,25 @@ This is the shared default reply profile. Optimize for scanability: conclusion b
 
 For complex plans, proposals, or multi-part answers:
 
-- Add a short reader-friendly summary layer before long detail.
-- Prefer this order in the summary layer:
+- Add a short reader-friendly summary layer only when it makes the answer easier to scan.
+- If a summary layer is needed, keep it minimal.
+- Prefer this order when a summary layer is used:
   - `Goal`
-  - `Phases`
-  - `Visuals`
-  - `Risks And Decisions`
   - `Recommendation`
+  - `Risks And Decisions`
 - Put the main conclusion or recommendation within the first 20% of the answer.
 - Keep the overlay readable in about 30 seconds.
+- Do not add visuals, tables, or extra wrappers unless they are clearly faster than prose.
 
 ## Status Answers
 
 For progress, testing, readiness, or checkpoint answers:
 
-- Default to dashboard-first ordering:
+- Default to a minimal status shape:
   - `Conclusion`
-  - `Summary Metrics`
-  - `Visual Status View`
   - `Next Action`
-- Prefer visible counts, ratios, compact tables, or small status boards over long narrative paragraphs.
+- Add `Summary Metrics` only when counts or ratios matter.
+- Add `Visual Status View` only when it makes the status clearer faster than text.
 - Use user-facing buckets when possible, such as `done`, `can test now`, `cannot test yet`, and `deferred`.
 
 ## Findings And Impact
@@ -65,7 +65,7 @@ For progress, testing, readiness, or checkpoint answers:
 
 ## Visuals
 
-- Use Mermaid when a visual will clarify structure faster than prose.
+- Use Mermaid only when a visual will clarify structure faster than prose.
 - Match visual type to the problem:
   - flow for process or rollout
   - architecture for system shape
@@ -77,10 +77,13 @@ For progress, testing, readiness, or checkpoint answers:
 
 ## Readability
 
+- Optimize for one-glance comprehension.
+- For short answers, prefer plain prose over section headers.
 - Prefer short sections and short paragraphs.
 - Prefer pyramid-principle ordering: conclusion before support, overview before detail.
 - Avoid long dense paragraphs when a compact board or table would communicate faster.
 - Do not let file lists or implementation notes dominate the top of the answer.
+- Do not repeat the same conclusion in multiple sections.
 
 ## Persistent Documents
 
@@ -99,10 +102,10 @@ When `superpowers` creates persistent documents, preserve the original body and 
 | Situation | Default move |
 | --- | --- |
 | Simple request | Answer directly and briefly |
-| Complex plan | Add summary layer first |
-| Status or readiness | Use dashboard-first format |
+| Complex plan | Add summary layer only if it improves scanability |
+| Status or readiness | Use `Conclusion` and `Next Action` by default |
 | Findings / risks / blockers | State the impact; if there is no material impact, say that explicitly |
 | Any answer | Use short sentences and plain words; avoid jargon or explain it |
-| System design | Add architecture diagram if helpful |
-| Workflow explanation | Add flow diagram if helpful |
+| System design | Add a diagram only if it is clearly faster than prose |
+| Workflow explanation | Add a flow diagram only if it is clearly faster than prose |
 | Another style explicitly requested | Do not use this profile |

@@ -39,3 +39,6 @@ Before finalizing a complex answer or document, verify:
 - Risks and decisions are explicit rather than implied.
 - Findings, blockers, and "needs attention" items include concrete impact, or explicitly state that there is no material impact.
 - Sentences are short, wording is plain, and jargon is avoided or explained.
+- The answer is not over-structured for its size.
+- The conclusion is stated once, early, and without redundant wrappers.
+- A visual or dashboard appears only when it is clearly faster than prose.

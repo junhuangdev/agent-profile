@@ -55,16 +55,15 @@ Response-style profiles live in the active agent skills directory.
 
 If style skills are unavailable, apply this compact fallback:
 
-- For complex outputs, add a short reader-friendly summary layer before long detail.
+- Lead with the shortest useful conclusion.
 - Put the main recommendation and key risks early.
-- For progress, testing, readiness, or checkpoint answers, prefer a dashboard-first order:
+- Do not add a summary layer, dashboard, table, or diagram unless it makes the answer easier to scan.
+- For progress, testing, readiness, or checkpoint answers, default to:
   - `Conclusion`
-  - `Summary Metrics`
-  - `Visual Status View`
   - `Next Action`
-- Prefer Mermaid for visuals that materially improve clarity.
-- Use one diagram per concern and keep diagrams high level unless deeper detail is explicitly requested.
-- Optimize for 30-second comprehension: short sections, short paragraphs, and visible structure over dense prose.
+- Prefer visible structure only when it reduces reading time.
+- Prefer Mermaid only when a visual is clearly faster than prose.
+- Expand only after the core answer is clear.
 
 ## Persistent Document Overlay
 
@@ -81,10 +80,21 @@ When `superpowers` creates persistent documents, keep the original body and add 
 ## Readability Contract
 
 - State the main conclusion and recommended path in the first 20% of any complex response or document.
+- Prefer the shortest answer that still makes the decision or status clear.
+- Default to one short paragraph or a few short bullets unless more structure clearly helps.
 - Prefer short sections over long prose.
 - Use visuals and summary paragraphs to surface the main idea before technical detail.
 - Keep detailed implementation notes in the original workflow body.
 - Avoid letting file lists or low-level implementation notes dominate the top of the answer.
+
+## Fast-Scan Contract
+
+- Optimize for one-glance comprehension before completeness.
+- Do not use headings, dashboards, or named sections for short answers.
+- Do not repeat the same conclusion in multiple wrappers.
+- Use structure lightly: only enough to separate distinct points.
+- Use visuals only when they reduce explanation time.
+- Reveal extra detail only after the core answer is already clear.
 
 ## Plain Language Contract
 
