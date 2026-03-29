@@ -22,6 +22,7 @@ This is the shared default reply profile. Optimize for scanability: conclusion b
 2. Required workflows stay intact. This profile only changes presentation.
 3. Simple requests stay concise. Do not force diagrams, tables, or overlays onto trivial answers.
 4. Default to the shortest answer that still makes the decision, status, or next step clear.
+5. For non-trivial answers, prefer one compact table over multiple prose paragraphs.
 
 ## Plain Language
 
@@ -36,25 +37,27 @@ This is the shared default reply profile. Optimize for scanability: conclusion b
 
 For complex plans, proposals, or multi-part answers:
 
-- Add a short reader-friendly summary layer only when it makes the answer easier to scan.
-- If a summary layer is needed, keep it minimal.
-- Prefer this order when a summary layer is used:
-  - `Goal`
+- Lead with a one-line conclusion or recommendation.
+- Prefer a compact summary table as the main summary layer.
+- If a summary layer is used, prefer this order:
+  - `Conclusion`
+  - summary table
   - `Recommendation`
   - `Risks And Decisions`
 - Put the main conclusion or recommendation within the first 20% of the answer.
 - Keep the overlay readable in about 30 seconds.
-- Do not add visuals, tables, or extra wrappers unless they are clearly faster than prose.
+- Prefer a Mermaid diagram when process or structure is easier to scan visually than in prose.
 
 ## Status Answers
 
 For progress, testing, readiness, or checkpoint answers:
 
-- Default to a minimal status shape:
+- Default to this shape:
   - `Conclusion`
+  - compact status table
   - `Next Action`
-- Add `Summary Metrics` only when counts or ratios matter.
-- Add `Visual Status View` only when it makes the status clearer faster than text.
+- Add `Summary Metrics` only when a separate metrics row is clearer than folding them into the table.
+- Prefer table columns such as `Item | Status | Impact | Next Step`.
 - Use user-facing buckets when possible, such as `done`, `can test now`, `cannot test yet`, and `deferred`.
 
 ## Findings And Impact
@@ -65,7 +68,8 @@ For progress, testing, readiness, or checkpoint answers:
 
 ## Visuals
 
-- Use Mermaid only when a visual will clarify structure faster than prose.
+- Prefer Markdown tables for status, findings, options, and comparisons.
+- Use Mermaid when a visual will clarify structure faster than prose.
 - Match visual type to the problem:
   - flow for process or rollout
   - architecture for system shape
@@ -74,11 +78,13 @@ For progress, testing, readiness, or checkpoint answers:
 - Use one diagram per concern.
 - Keep diagrams high level unless the user explicitly asks for implementation depth.
 - Default to `LR` direction unless another orientation is materially clearer.
+- Keep tables compact: short labels, short cells, 3 to 5 columns by default.
 
 ## Readability
 
 - Optimize for one-glance comprehension.
 - For short answers, prefer plain prose over section headers.
+- For non-trivial answers, prefer a compact table before any long explanation.
 - Prefer short sections and short paragraphs.
 - Prefer pyramid-principle ordering: conclusion before support, overview before detail.
 - Avoid long dense paragraphs when a compact board or table would communicate faster.
@@ -102,10 +108,10 @@ When `superpowers` creates persistent documents, preserve the original body and 
 | Situation | Default move |
 | --- | --- |
 | Simple request | Answer directly and briefly |
-| Complex plan | Add summary layer only if it improves scanability |
-| Status or readiness | Use `Conclusion` and `Next Action` by default |
+| Complex plan | Use one-line conclusion, then a compact summary table |
+| Status or readiness | Use `Conclusion`, a status table, and `Next Action` |
 | Findings / risks / blockers | State the impact; if there is no material impact, say that explicitly |
 | Any answer | Use short sentences and plain words; avoid jargon or explain it |
-| System design | Add a diagram only if it is clearly faster than prose |
-| Workflow explanation | Add a flow diagram only if it is clearly faster than prose |
+| System design | Prefer a compact table first; add a diagram when structure matters |
+| Workflow explanation | Prefer a flow diagram when there are multiple steps or branches |
 | Another style explicitly requested | Do not use this profile |

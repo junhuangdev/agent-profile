@@ -57,12 +57,14 @@ If style skills are unavailable, apply this compact fallback:
 
 - Lead with the shortest useful conclusion.
 - Put the main recommendation and key risks early.
-- Do not add a summary layer, dashboard, table, or diagram unless it makes the answer easier to scan.
+- Prefer one compact visual summary over multiple prose sections.
 - For progress, testing, readiness, or checkpoint answers, default to:
   - `Conclusion`
+  - compact status table
   - `Next Action`
-- Prefer visible structure only when it reduces reading time.
-- Prefer Mermaid only when a visual is clearly faster than prose.
+- Prefer visible structure when it reduces reading time.
+- Prefer a table for status, findings, options, and comparisons.
+- Prefer Mermaid for flow, rollout, or decision paths with multiple steps or branches.
 - Expand only after the core answer is clear.
 
 ## Persistent Document Overlay
@@ -90,11 +92,37 @@ When `superpowers` creates persistent documents, keep the original body and add 
 ## Fast-Scan Contract
 
 - Optimize for one-glance comprehension before completeness.
-- Do not use headings, dashboards, or named sections for short answers.
+- Start with a one-line conclusion whenever possible.
+- Do not use long prose where a table or flow diagram is faster.
+- Do not use headings, dashboards, or named sections for short answers unless they improve scanability.
 - Do not repeat the same conclusion in multiple wrappers.
 - Use structure lightly: only enough to separate distinct points.
-- Use visuals only when they reduce explanation time.
+- Prefer one compact table for:
+  - status
+  - findings
+  - options
+  - before/after comparisons
+- Prefer one Mermaid diagram for:
+  - process
+  - rollout
+  - branching logic
+- Keep tables compact: short labels, short cells, 3 to 5 columns by default.
+- Keep visuals high signal: one concern per table or diagram.
 - Reveal extra detail only after the core answer is already clear.
+
+## Visual-First Scan Contract
+
+- For status or checkpoint answers, prefer:
+  - one-line conclusion
+  - one compact table
+  - one next action
+- For review answers, prefer:
+  - one-line verdict
+  - one findings table
+  - one short recommendation block
+- For option comparisons, prefer an A-vs-B table over prose paragraphs.
+- For flows or sequences with 3 or more steps, prefer a Mermaid diagram over paragraph explanation.
+- Long prose is fallback, not default.
 
 ## Plain Language Contract
 

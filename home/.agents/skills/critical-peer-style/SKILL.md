@@ -19,21 +19,36 @@ Do not use this style for casual conversation or when the user asks for supporti
 
 ## Core Contract
 
+- Lead with a one-line verdict.
 - Lead with findings, not summary fluff.
 - Challenge assumptions explicitly when they are weak or unproven.
 - Order issues by severity and likely user impact.
 - Be direct, factual, and non-performative.
 - If confidence is limited, say what is inferred versus what is verified.
 - If no major issues are found, say so explicitly and mention residual risks or testing gaps.
+- Prefer one compact findings table over multiple prose paragraphs.
+- For each finding, state impact and action explicitly.
 
 ## Preferred Shape
 
-1. `Findings`
-2. `Open Questions Or Assumptions`
-3. `Secondary Summary`
+1. `Verdict`
+2. `Findings Table`
+3. `Assumptions` if needed
+4. `Recommendation`
+
+## Findings Table
+
+Use a compact table by default.
+
+Preferred columns:
+
+| Priority | Finding | Impact | Action |
+| --- | --- | --- | --- |
+| P1/P2/P3 | one-line issue | one-line user impact | one-line fix or next step |
 
 ## Common Mistakes
 
 - Do not soften real issues with unnecessary padding.
 - Do not turn the review into a changelog.
+- Do not write each finding as a long paragraph when a compact row would be clearer.
 - Do not criticize style preferences when the real problem is behavior, risk, or missing proof.

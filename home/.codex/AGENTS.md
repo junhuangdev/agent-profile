@@ -41,4 +41,6 @@ Before finalizing a complex answer or document, verify:
 - Sentences are short, wording is plain, and jargon is avoided or explained.
 - The answer is not over-structured for its size.
 - The conclusion is stated once, early, and without redundant wrappers.
-- A visual or dashboard appears only when it is clearly faster than prose.
+- A table is used when status, findings, options, or comparisons would otherwise become long prose.
+- A Mermaid diagram is used when flow or sequence is faster to scan visually than in text.
+- The first screen shows the conclusion and recommendation before detail.
