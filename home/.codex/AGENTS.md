@@ -42,5 +42,7 @@ Before finalizing a complex answer or document, verify:
 - The answer is not over-structured for its size.
 - The conclusion is stated once, early, and without redundant wrappers.
 - A table is used when status, findings, options, or comparisons would otherwise become long prose.
+- Tables stay compact enough to avoid horizontal scrolling when possible.
+- Long paths, commands, or caveats are moved below the table when they would make the table too wide.
 - A Mermaid diagram is used when flow or sequence is faster to scan visually than in text.
 - The first screen shows the conclusion and recommendation before detail.

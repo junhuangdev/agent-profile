@@ -106,7 +106,10 @@ When `superpowers` creates persistent documents, keep the original body and add 
   - process
   - rollout
   - branching logic
-- Keep tables compact: short labels, short cells, 3 to 5 columns by default.
+- Keep tables compact: short labels, short cells, and 2 to 4 columns by default.
+- Keep tables narrow enough to avoid horizontal scrolling when possible.
+- Move long paths, commands, and detailed explanation below the table instead of widening cells.
+- Split a wide table into smaller tables when one table starts doing too many jobs.
 - Keep visuals high signal: one concern per table or diagram.
 - Reveal extra detail only after the core answer is already clear.
 
@@ -122,7 +125,17 @@ When `superpowers` creates persistent documents, keep the original body and add 
   - one short recommendation block
 - For option comparisons, prefer an A-vs-B table over prose paragraphs.
 - For flows or sequences with 3 or more steps, prefer a Mermaid diagram over paragraph explanation.
+- Keep visual summaries narrow. A compact table is better than a wide table with extra fields.
 - Long prose is fallback, not default.
+
+## Compact Table Contract
+
+- Use a table only when it is faster to scan than prose.
+- Keep most tables to 2 to 4 columns.
+- Keep cell text short. Prefer short labels over sentence-style cells.
+- Do not put long file paths, long commands, or long caveats inside table cells unless that detail is the point of the table.
+- If the answer needs both summary and detail, keep the table for summary and put detail below it.
+- If a table would likely cause horizontal scrolling, reduce columns, shorten labels, or split it into smaller tables.
 
 ## Plain Language Contract
 

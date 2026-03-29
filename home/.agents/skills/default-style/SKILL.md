@@ -78,13 +78,17 @@ For progress, testing, readiness, or checkpoint answers:
 - Use one diagram per concern.
 - Keep diagrams high level unless the user explicitly asks for implementation depth.
 - Default to `LR` direction unless another orientation is materially clearer.
-- Keep tables compact: short labels, short cells, 3 to 5 columns by default.
+- Keep tables compact: short labels, short cells, and 2 to 4 columns by default.
+- Keep tables narrow enough to avoid horizontal scrolling when possible.
+- Move long paths, commands, and caveats below the table when they would widen the table too much.
+- Split a wide table into smaller tables instead of adding more columns.
 
 ## Readability
 
 - Optimize for one-glance comprehension.
 - For short answers, prefer plain prose over section headers.
 - For non-trivial answers, prefer a compact table before any long explanation.
+- Keep the table as the summary layer. Put detail below it.
 - Prefer short sections and short paragraphs.
 - Prefer pyramid-principle ordering: conclusion before support, overview before detail.
 - Avoid long dense paragraphs when a compact board or table would communicate faster.
@@ -111,6 +115,7 @@ When `superpowers` creates persistent documents, preserve the original body and 
 | Complex plan | Use one-line conclusion, then a compact summary table |
 | Status or readiness | Use `Conclusion`, a status table, and `Next Action` |
 | Findings / risks / blockers | State the impact; if there is no material impact, say that explicitly |
+| Any table | Keep it narrow; move long paths, commands, and caveats below the table |
 | Any answer | Use short sentences and plain words; avoid jargon or explain it |
 | System design | Prefer a compact table first; add a diagram when structure matters |
 | Workflow explanation | Prefer a flow diagram when there are multiple steps or branches |
