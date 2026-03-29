@@ -80,7 +80,9 @@ For progress, testing, readiness, or checkpoint answers:
 - Default to `LR` direction unless another orientation is materially clearer.
 - Keep tables compact: short labels, short cells, and 2 to 4 columns by default.
 - Keep tables narrow enough to avoid horizontal scrolling when possible.
+- Cell text may wrap when that is the simplest way to keep the table narrow.
 - Move long paths, commands, and caveats below the table when they would widen the table too much.
+- If wrapping would make cells too tall, move the detail below the table instead.
 - Split a wide table into smaller tables instead of adding more columns.
 
 ## Readability
@@ -115,7 +117,7 @@ When `superpowers` creates persistent documents, preserve the original body and 
 | Complex plan | Use one-line conclusion, then a compact summary table |
 | Status or readiness | Use `Conclusion`, a status table, and `Next Action` |
 | Findings / risks / blockers | State the impact; if there is no material impact, say that explicitly |
-| Any table | Keep it narrow; move long paths, commands, and caveats below the table |
+| Any table | Keep it narrow; allow wrapping, but move long paths, commands, and caveats below the table when cells get too tall |
 | Any answer | Use short sentences and plain words; avoid jargon or explain it |
 | System design | Prefer a compact table first; add a diagram when structure matters |
 | Workflow explanation | Prefer a flow diagram when there are multiple steps or branches |

@@ -43,6 +43,8 @@ Before finalizing a complex answer or document, verify:
 - The conclusion is stated once, early, and without redundant wrappers.
 - A table is used when status, findings, options, or comparisons would otherwise become long prose.
 - Tables stay compact enough to avoid horizontal scrolling when possible.
+- Cell text may wrap when that keeps the table readable without adding extra columns.
 - Long paths, commands, or caveats are moved below the table when they would make the table too wide.
+- If wrapping would make cells too tall, detail is moved below the table instead.
 - A Mermaid diagram is used when flow or sequence is faster to scan visually than in text.
 - The first screen shows the conclusion and recommendation before detail.

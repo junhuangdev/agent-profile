@@ -133,8 +133,10 @@ When `superpowers` creates persistent documents, keep the original body and add 
 - Use a table only when it is faster to scan than prose.
 - Keep most tables to 2 to 4 columns.
 - Keep cell text short. Prefer short labels over sentence-style cells.
+- Cell text may wrap when that is the simplest way to avoid horizontal scrolling.
 - Do not put long file paths, long commands, or long caveats inside table cells unless that detail is the point of the table.
 - If the answer needs both summary and detail, keep the table for summary and put detail below it.
+- If wrapping would make cells regularly span more than about 2 lines, move the detail below the table instead.
 - If a table would likely cause horizontal scrolling, reduce columns, shorten labels, or split it into smaller tables.
 
 ## Plain Language Contract
