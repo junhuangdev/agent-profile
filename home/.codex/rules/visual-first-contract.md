@@ -18,11 +18,11 @@ Use visuals to lower reading effort for relationship-heavy or dynamic informatio
 
 For non-trivial plans or proposals, the reader-facing overlay should use:
 
-1. `Goal`
-2. `Phases`
+1. `Conclusion`
+2. `Recommendation`
 3. `Visuals`
 4. `Risks And Decisions`
-5. `Recommendation`
+5. `Implementation Notes` when needed
 
 Add `Implementation Notes` only when extra detail prevents mistakes.
 

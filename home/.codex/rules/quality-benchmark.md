@@ -27,16 +27,22 @@ Score each dimension from 1 to 5:
 
 ## Pass Criteria
 
-- Complex tasks include at least one visual.
+- The first line can stand alone as the human-readable conclusion.
+- The summary layer contains only decision-useful information.
+- Complex tasks include a visual when relationships or dynamic structure are easier to scan visually than in prose.
 - Workflow tasks include a flow diagram.
 - System design tasks include an architecture diagram.
+- Tables use keywords or short phrases in cells rather than sentence-style text.
 - The recommendation is clear in the first screen.
 - The reader can summarize the main path and main risk within 30 seconds.
 - The original `superpowers` workflow content remains present and unchanged in substance.
 
 ## Failure Signs
 
+- The first line does not tell the reader the conclusion or recommendation.
+- The summary layer includes detail that does not affect the decision.
 - Large prose block before any visual
+- A table uses sentence-style cells where keywords would scan faster
 - Diagram included but not used to drive the explanation
 - File lists or implementation detail dominate the answer
 - Recommendation appears late or is ambiguous

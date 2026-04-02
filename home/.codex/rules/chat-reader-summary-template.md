@@ -4,11 +4,11 @@ Use this template for complex planning, proposal, or system-design answers in ch
 
 ## Order
 
-1. `Goal`
-2. `Phases`
-3. `Visuals`
-4. `Risks And Decisions`
-5. `Recommendation`
+1. `Conclusion`
+2. `Recommendation`
+3. `Key Changes`
+4. `Visuals`
+5. `Risks And Decisions`
 
 ## Rules
 
@@ -19,12 +19,15 @@ Use this template for complex planning, proposal, or system-design answers in ch
 ## Skeleton
 
 ````md
-## Goal
+## Conclusion
 - One-sentence outcome.
 
-## Phases
-- Phase 1: what, why now, done criteria
-- Phase 2: what, why now, done criteria
+## Recommendation
+- Recommended path and why it wins.
+
+## Key Changes
+- Change 1: what matters
+- Change 2: why it matters
 
 ## Visuals
 ```mermaid
@@ -36,7 +39,4 @@ flowchart LR
 ## Risks And Decisions
 - Main risk
 - Key decision
-
-## Recommendation
-- Recommended path and why it wins
 ````

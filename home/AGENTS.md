@@ -89,7 +89,7 @@ When `superpowers` creates persistent documents, keep the original body and add 
 - `writing-plans` documents:
   - preserve the required `superpowers` header exactly
   - insert a reader layer after the header and before the first task or chunk
-  - include `Reader Summary`, `What This Changes`, `Execution Flow`, `Architecture Snapshot` when relevant, `Main Risks`, and `Execution Recommendation`
+  - include `Reader Summary`, `Execution Recommendation`, `What This Changes`, `Execution Flow`, `Architecture Snapshot` when relevant, and `Main Risks`
 
 ## Readability Contract
 

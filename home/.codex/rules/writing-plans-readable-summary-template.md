@@ -9,17 +9,20 @@ Insert after the required `superpowers` plan header and before the first task or
 ## Required Sections
 
 - `Reader Summary`
+- `Execution Recommendation`
 - `What This Changes`
 - `Execution Flow`
 - `Architecture Snapshot` when applicable
 - `Main Risks`
-- `Execution Recommendation`
 
 ## Skeleton
 
 ````md
 ## Reader Summary
 - Short description of the change in user-facing terms.
+
+## Execution Recommendation
+- The recommended implementation path before the detailed tasks begin.
 
 ## What This Changes
 - The highest-signal changes only.
@@ -42,7 +45,4 @@ graph LR
 ## Main Risks
 - Main implementation risk
 - Main verification risk
-
-## Execution Recommendation
-- The recommended implementation path before the detailed tasks begin.
 ````

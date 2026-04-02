@@ -44,7 +44,7 @@ Preferred columns:
 
 | Priority | Finding | Impact | Action |
 | --- | --- | --- | --- |
-| P1/P2/P3 | one-line issue | one-line user impact | one-line fix or next step |
+| P1/P2/P3 | keyword issue | keyword impact | keyword action |
 
 ## Common Mistakes
 

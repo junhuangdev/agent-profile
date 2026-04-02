@@ -117,7 +117,7 @@ When `superpowers` creates persistent documents, preserve the original body and 
 - `writing-plans` documents:
   - preserve the required header
   - insert a reader layer after the header and before the first task
-  - include `Reader Summary`, `What This Changes`, `Execution Flow`, `Architecture Snapshot` when relevant, `Main Risks`, and `Execution Recommendation`
+  - include `Reader Summary`, `Execution Recommendation`, `What This Changes`, `Execution Flow`, `Architecture Snapshot` when relevant, and `Main Risks`
 
 ## Quick Reference
 
@@ -129,6 +129,6 @@ When `superpowers` creates persistent documents, preserve the original body and 
 | Findings / risks / blockers | State the impact; if there is no material impact, say that explicitly |
 | Any table | Use keywords or short phrases in cells; put explanation below the table |
 | Any answer | Use short sentences and plain words; avoid jargon or explain it |
-| System design | Prefer a compact table first; add a diagram when structure matters |
+| System design | Lead with one-line conclusion; use an architecture diagram when relationships matter |
 | Workflow explanation | Prefer a flow diagram when there are multiple steps or branches |
 | Another style explicitly requested | Do not use this profile |
