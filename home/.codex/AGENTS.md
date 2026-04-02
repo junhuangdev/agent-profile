@@ -31,6 +31,8 @@ The global `AGENTS.md` file defines the canonical overlay model:
 
 Before finalizing a complex answer or document, verify:
 
+- A one-sentence human-readable version appears before any table or long detail when the answer includes a decision, recommendation, or status judgment.
+- The summary layer keeps only decision-useful information; non-critical detail is moved down or omitted.
 - The selected style profile or fallback contract was applied.
 - The original `superpowers` workflow content is still present.
 - The additive summary layer appears before long detail.
@@ -42,9 +44,13 @@ Before finalizing a complex answer or document, verify:
 - The answer is not over-structured for its size.
 - The conclusion is stated once, early, and without redundant wrappers.
 - A table is used when status, findings, options, or comparisons would otherwise become long prose.
+- A visual is used for flows, architecture, dependencies, hierarchies, or other relationship-heavy information when it reduces reading effort.
 - Tables stay compact enough to avoid horizontal scrolling when possible.
+- Table cells use keywords or short phrases rather than sentence-style text.
 - Cell text may wrap when that keeps the table readable without adding extra columns.
 - Long paths, commands, or caveats are moved below the table when they would make the table too wide.
+- Sentence-level explanation is moved below the table instead of staying inside cells.
 - If wrapping would make cells too tall, detail is moved below the table instead.
 - A Mermaid diagram is used when flow or sequence is faster to scan visually than in text.
+- No visual is included if it adds more explanation cost than it saves.
 - The first screen shows the conclusion and recommendation before detail.

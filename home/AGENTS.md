@@ -14,6 +14,17 @@ This file applies to the user's home directory and descendant directories when i
   - follow the global `AGENTS.md` for process and response quality
   - follow the nearest project `AGENTS.md` for project-specific implementation context
 
+## Workspace Isolation Preference
+
+- Default to the current workspace. Do not default to creating or switching to a git worktree.
+- If a worktree may help, stop first and explain it manually before taking action.
+- The explanation must include:
+  - why isolation is needed for the current task
+  - the proposed worktree path or branch name
+  - the concrete risk of staying in the current workspace
+- Only create or switch to a git worktree after the user explicitly asks for it or explicitly approves it after that explanation.
+- Treat `using-git-worktrees` as optional guidance after approval, not as permission to use a worktree by default.
+
 ## Canonical Workflow
 
 When a `superpowers` skill applies, treat `superpowers` as the canonical workflow.
@@ -56,6 +67,7 @@ Response-style profiles live in the active agent skills directory.
 If style skills are unavailable, apply this compact fallback:
 
 - Lead with the shortest useful conclusion.
+- For any answer that involves a decision, recommendation, approval, or status judgment, start with one plain-language sentence that can stand alone.
 - Put the main recommendation and key risks early.
 - Prefer one compact visual summary over multiple prose sections.
 - For progress, testing, readiness, or checkpoint answers, default to:
@@ -89,10 +101,21 @@ When `superpowers` creates persistent documents, keep the original body and add 
 - Keep detailed implementation notes in the original workflow body.
 - Avoid letting file lists or low-level implementation notes dominate the top of the answer.
 
+## Human-Speed Contract
+
+- Optimize for time-to-understanding and time-to-decision, not information volume.
+- Default order: one-sentence human version, high-signal summary, visual for relationship-heavy information, then supporting detail.
+- The first screen should answer three questions fast: what is the conclusion, what needs a decision, and why it matters.
+- Keep only decision-changing information in the summary layer. Move everything else down or omit it.
+- Use text first for isolated facts, precise caveats, or short answers with no meaningful relationships.
+- Use visuals first for flows, architecture, dependencies, hierarchies, comparisons, and other relationship-heavy information.
+- If a visual takes more explanation than the text version, do not use the visual.
+
 ## Fast-Scan Contract
 
 - Optimize for one-glance comprehension before completeness.
 - Start with a one-line conclusion whenever possible.
+- If the reader only reads the first sentence, they should still understand the decision, recommendation, or current state.
 - Do not use long prose where a table or flow diagram is faster.
 - Do not use headings, dashboards, or named sections for short answers unless they improve scanability.
 - Do not repeat the same conclusion in multiple wrappers.
@@ -123,16 +146,32 @@ When `superpowers` creates persistent documents, keep the original body and add 
   - one-line verdict
   - one findings table
   - one short recommendation block
+- For review answers, surface decision-critical issues before any supporting detail.
 - For option comparisons, prefer an A-vs-B table over prose paragraphs.
 - For flows or sequences with 3 or more steps, prefer a Mermaid diagram over paragraph explanation.
+- For architecture, dependency, boundary, or hierarchy explanations, prefer a diagram over prose when the visual reduces context switching.
 - Keep visual summaries narrow. A compact table is better than a wide table with extra fields.
 - Long prose is fallback, not default.
+
+## Human Review Contract
+
+- When writing for human review, optimize for decision-making, not exhaustiveness.
+- Start with a one-sentence human version before any table or detail.
+- Lead with the decision: approve, approve with caveats, request changes, or blocked.
+- Put the smallest set of high-signal findings first: only the issues that materially change the decision, risk, or next action.
+- Separate must-fix issues from optional polish when that distinction helps the reviewer decide faster.
+- Do not front-load long file lists, code excerpts, implementation history, or low-signal observations.
+- If a detail does not change the decision, compress it to one short line or omit it.
+- If there are many minor notes, summarize the pattern and show only one or two representative examples unless the user asks for a full list.
+- End the top summary with the concrete decision ask: what the human should decide now, what can wait, and why.
 
 ## Compact Table Contract
 
 - Use a table only when it is faster to scan than prose.
 - Keep most tables to 2 to 4 columns.
 - Keep cell text short. Prefer short labels over sentence-style cells.
+- Default table cells to keywords or short phrases, not full sentences.
+- Keep only decision-useful signals in the columns. Move explanation below the table.
 - Cell text may wrap when that is the simplest way to avoid horizontal scrolling.
 - Do not put long file paths, long commands, or long caveats inside table cells unless that detail is the point of the table.
 - If the answer needs both summary and detail, keep the table for summary and put detail below it.
